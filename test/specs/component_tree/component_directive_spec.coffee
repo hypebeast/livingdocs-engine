@@ -37,6 +37,17 @@ describe 'Component Directive', ->
         expect( @imgDirective.getOriginalUrl() ).to.equal('http:://images.com/1.jpg')
 
 
+    describe 'setOriginalDimensions()', ->
+
+      it 'sets image dimensions', ->
+        dim = height: 400, width: 300
+        @imgDirective.setOriginalDimensions(dim)
+
+        result = @imgDirective.getOriginalDimensions()
+        expect(result.height).to.equal(dim.height)
+        expect(result.width).to.equal(dim.width)
+
+
     describe 'setCrop()', ->
 
       beforeEach ->

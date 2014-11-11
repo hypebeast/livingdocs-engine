@@ -56,6 +56,18 @@ module.exports = class ImageDirective
     @component.content[@name]
 
 
+  setOriginalDimensions: (dim) ->
+    content = @component.content[@name] ?= {}
+    content.originalWidth = dim.width
+    content.originalHeight = dim.height
+
+
+  getOriginalDimensions: ->
+    image = @component.content[@name] || {}
+    width: image.originalWidth
+    height: image.originalHeight
+
+
   getOriginalUrl: ->
     @component.content[@name].originalUrl || @getImageUrl()
 
